@@ -816,12 +816,12 @@ configure_file ( ${FluidSynth_SOURCE_DIR}/src/config.cmake
                  ${FluidSynth_BINARY_DIR}/config.h )
 
 # required to allow ctest to be called from top-level build directory
-ENABLE_TESTING()
+# ENABLE_TESTING()
 
 # Process subdirectories
 add_subdirectory ( src )
-add_subdirectory ( test )
-add_subdirectory ( doc )
+# add_subdirectory ( test )
+# add_subdirectory ( doc )
 
 # pkg-config support
 set ( prefix "${CMAKE_INSTALL_PREFIX}" )
@@ -837,8 +837,8 @@ else ()
   set ( includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}" )
 endif ()
 
-generate_pkgconfig_spec(fluidsynth.pc.in ${FluidSynth_BINARY_DIR}/fluidsynth.pc libfluidsynth-OBJ)
-install ( FILES ${FluidSynth_BINARY_DIR}/fluidsynth.pc
+# generate_pkgconfig_spec(fluidsynth.pc.in ${FluidSynth_BINARY_DIR}/fluidsynth.pc libfluidsynth-OBJ)
+# install ( FILES ${FluidSynth_BINARY_DIR}/fluidsynth.pc
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
 
 # Exported targets for cmake: find_package(FluidSynth)
@@ -863,10 +863,10 @@ write_basic_package_version_file(
 # support generating a config.cmake file for both the installed
 # package and for using the build directory directly.
 configure_file(FluidSynthConfig.cmake.in FluidSynthConfig.cmake @ONLY)
-install(FILES "${FluidSynth_BINARY_DIR}/FluidSynthConfig.cmake"
-              "${FluidSynth_BINARY_DIR}/FluidSynthConfigVersion.cmake"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/fluidsynth
-)
+# install(FILES "${FluidSynth_BINARY_DIR}/FluidSynthConfig.cmake"
+#              "${FluidSynth_BINARY_DIR}/FluidSynthConfigVersion.cmake"
+#    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/fluidsynth
+#)
 
 # Extra targets for Unix build environments
 if ( UNIX )
@@ -880,10 +880,10 @@ if ( UNIX )
     endif ( DEFINED FLUID_DAEMON_ENV_FILE )
 
     # uninstall custom target
-    configure_file ( "${FluidSynth_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
-      "${FluidSynth_BINARY_DIR}/cmake_uninstall.cmake" IMMEDIATE @ONLY)
-    add_custom_target ( uninstall
-      "${CMAKE_COMMAND}" -P "${FluidSynth_BINARY_DIR}/cmake_uninstall.cmake")
+    # configure_file ( "${FluidSynth_SOURCE_DIR}/cmake_admin/cmake_uninstall.cmake.in"
+    #  "${FluidSynth_BINARY_DIR}/cmake_uninstall.cmake" IMMEDIATE @ONLY)
+    # add_custom_target ( uninstall
+    #  "${CMAKE_COMMAND}" -P "${FluidSynth_BINARY_DIR}/cmake_uninstall.cmake")
 endif ( UNIX )
 
 include ( report )
@@ -909,5 +909,4 @@ include ( InstallRequiredSystemLibraries )
 set ( CPACK_GENERATOR STGZ;TGZ;TBZ2;ZIP )
 set ( CPACK_PACKAGE_NAME ${PACKAGE} )
 set ( CPACK_STRIP_FILES ON )
-
-include ( CPack )
+# include ( CPack )
