@@ -839,7 +839,7 @@ endif ()
 
 # generate_pkgconfig_spec(fluidsynth.pc.in ${FluidSynth_BINARY_DIR}/fluidsynth.pc libfluidsynth-OBJ)
 # install ( FILES ${FluidSynth_BINARY_DIR}/fluidsynth.pc
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
+#    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig )
 
 # Exported targets for cmake: find_package(FluidSynth)
 # when installed, use CMAKE_PREFIX_PATH=fluidsynth-prefix;...
